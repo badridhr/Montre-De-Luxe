@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <title>Montre De Luxe</title>
+</head>
+<body>
+<header class="site-header">
+    <div class="top-bar">
+        <p>Dépenser 9500 Da & Profitez D'une Livraison Gratuite!</p>
+    </div>
+
+    <div class="main-header">
+        <!-- Partie mobile gauche (hamburger + recherche) - CACHÉ SUR DESKTOP -->
+        <div class="mobile-left">
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="26" height="26">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <button class="icon-link search-toggle mobile-search" aria-label="Recherche">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="20" height="20">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Logo mobile -->
+        <div class="header-logo mobile-logo">
+            <a href="/" class="logo-text">Montre De Luxe</a>
+        </div>
+
+        <!-- Partie droite (compte + panier) -->
+        <div class="header-right">
+            <a href="account.html" class="icon-link" aria-label="Compte">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22">
+                    <circle cx="12" cy="7" r="4"/>
+                    <path d="M5.5 21a7 7 0 0 1 13 0"/>
+                </svg>
+            </a>
+            <button class="icon-link cart-toggle" aria-label="Panier">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22">
+                    <path d="M6 6h15l-1.5 9h-12z"/>
+                    <circle cx="9" cy="20" r="1"/>
+                    <circle cx="18" cy="20" r="1"/>
+                </svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+
+        <!-- Partie centre (navigation desktop) -->
+        <div class="header-center">
+            <nav class="nav-menu">
+                <a href="contact.html">CONTACT</a>
+                <a href="rolex.html">ROLEX</a>
+                <a href="omega.html">OMEGA</a>
+            </nav>
+
+            <div class="header-logo desktop-logo">
+                <a href="/" class="logo-text">Montre De Luxe</a>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="hublot.html">HUBLOT</a>
+                <a href="patek.html">PATEK PHILIPPE</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">MORE</a>
+                    <div class="dropdown-menu">
+                        <a href="aumdemares.html">AUDEMARES PIGUET</a>
+                        <a href="rolex3a.html">ROLEX 3A</a>
+                        <a href="rolexfemme.html">ROLEX Femme</a>
+                        <a href="faqs.html">FAQs</a>
+                         <a href="rolexfemme.html">ROLEX FEMME</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Partie gauche desktop (recherche) - CACHÉ SUR MOBILE -->
+        <div class="header-left">
+            <button class="icon-link search-toggle" aria-label="Recherche">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="20" height="20">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="close-menu" aria-label="Fermer le menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="24" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"/>
+            </svg>
+        </button>
+        
+        <nav class="nav-mobile">
+            <a href="index.html">ACCUEIl</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="rolex.html">ROLEX</a>
+            <a href="omega.html">OMEGA</a>
+            <a href="hublot.html">HUBLOT</a>
+            <a href="patek.html">PATEK PHILIPPE</a>
+            <a href="aumdemares.html">AUDEMARES PIGUET</a>
+            <a href="rolex3a.html">ROLEX 3A</a>
+            <a href="rolexfemme.html">ROLEX FEMME</a>
+            <a href="faqs.html">FAQs</a>
+
+
+        </nav>
+    </div>
+</header>
+
+<!-- Popup recherche -->
+<div class="search-popup">
+    <div class="search-container">
+        <div class="search-header">
+            <h3>Rechercher dans tous les produits</h3>
+            <button class="close-search" aria-label="Fermer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000" stroke-width="1.5" viewBox="0 0 24 24" width="20" height="20">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="search-box">
+            <form action="rolex.html" method="get" role="search">
+                <div class="search-input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="18" height="18" class="search-icon">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="search" name="q" placeholder="Rechercher Rolex, Omega, Hublot..." aria-label="Recherche dans tous les produits" autofocus>
+                    <button type="submit" style="display: none;">Rechercher</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Suggestions rapides -->
+        <div class="search-suggestions">
+            <p style="margin-bottom: 10px; color: #666; font-size: 14px;">Suggestions :</p>
+            <div class="suggestion-tags">
+            <a href="index.html">ACCUEIl</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="rolex.html">ROLEX</a>
+            <a href="omega.html">OMEGA</a>
+            <a href="hublot.html">HUBLOT</a>
+            <a href="patek.html">PATEK PHILIPPE</a>
+            <a href="aumdemares.html">AUDEMARES PIGUET</a>
+            <a href="rolex3a.html">ROLEX 3A</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Panier sidebar -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Votre panier (<span id="sidebarCartCount">0</span>)</h3>
+        <button class="close-cart" id="closeCart" aria-label="Fermer le panier">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#333" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="shipping-progress" id="shippingProgress"></div>
+
+    <div class="cart-content">
+        <div id="cartItems"></div>
+
+        <div class="empty-cart" id="emptyCartMessage" style="display: none;">
+            <p>Votre panier est vide. 🛍️</p>
+            <a href="rolex.html" class="continue-shopping">Continuer les achats</a>
+        </div>
+        
+        <div class="special-instructions" id="specialInstructionsSection" style="display: none;">
+            <label class="instructions-label">Instructions spéciales concernant la commande</label>
+            <div class="instructions-placeholder-box" id="instructionsPlaceholder">Ajouter des instructions spéciales pour votre commande</div>
+            <textarea id="instructionsInput" class="instructions-input" placeholder="Écrivez vos instructions ici..."></textarea>
+        </div>
+    </div>
+
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+        <div class="subtotal">
+            <span>Sous-total</span>
+            <span id="subtotalAmount">DA 0 DZD</span>
+        </div>
+       <button class="checkout-btn" onclick="window.location.href='paiment.html'">JE VALIDE MA COMMANDE</button>
+    </div>
+</div>
+
+
+
+
+<section class="hero-banner">
+    <div class="hero-slides">
+        <div class="hero-image" style="background-image: url('https://media.rolex.com/image/upload/q_auto/f_auto/c_limit,w_1920/v1741858601/rolexcom/collection/family-pages/classic-watches/land-dweller/family-page/classic-watches-the-land-dweller-beauty-shot-quote_m127334-0001_2503stojan_003');"></div>
+        <div class="hero-image" style="background-image: url('https://media.rolex.com/image/upload/v1725888690/rolexcom/collection/configurator/config-launcher/2024/config-launcher-watches-day-date-m228235-0055_2403jva_002.jpg');"></div>
+    </div>
+
+    <div class="hero-content">
+        <h1>UN CADEAU <br> POUR LA VIE</h1> 
+        <p>
+            OFFREZ UNE ÉLÉGANCE INTEMPORELLE AVEC NOS MONTRES DE QUALITÉ, CONÇUS POUR ÊTRE TRANSMIS DE GÉNÉRATION EN GÉNÉRATION.
+        </p>
+        <a href="allproduits.html" class="hero-btn">
+            COMMANDER MAINTENANT
+            <svg xmlns="http://www.w3.org/2000/svg" class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </a>
+    </div>
+
+    <div class="hero-controls">
+        <button class="dot active" data-index="0"></button>
+        <button class="dot" data-index="1"></button>
+    </div>
+</section>
+
+
+
+<section class="acheter-par-categorie">
+  <div class="container">
+    <h2 class="title">ACHETER PAR CATÉGORIE</h2>
+    <a href="allproduits.html" id="ViewAll-template--20837291032869__165666442841fa5a70" class="link underlined-link large-up-hide" aria-labelledby="">Tout afficher</a>
+    <p class="subtitle">Conceptions Artisanales Exquises Juste Pour Vous.</p>
+
+    <div class="categories-wrapper">
+      <button class="arrow left">←</button>
+
+      <div class="categories-container">
+        <div class="categories">
+          <div class="category">
+            <img src="https://magazine.chrono24.com/cdn-cgi/image/f=auto,metadata=none,fit=cover,q=65,w=1200,h=600,dpr=2.0/2022/04/Rolex-Opinion-21-scaled.jpg" alt="Rolex">
+            <div class="category-bottom">
+                <a href="rolex.html"><span class="category-name">ROLEX</span>
+              <span class="category-arrow">→</span></a>
+
+            </div>
+          </div>
+          <div class="category">
+            <img src="https://images.hbjo-online.com/webp/sites/doux/uploads/images/64a6cd2a327c064a6932f931fa_omega-constellation.jpg?w=800" alt="Rolex">
+            <div class="category-bottom">
+                <a href="omega.html"> <span class="category-name">OMEGA</span>
+              <span class="category-arrow">→</span></a>
+
+            </div>
+          </div>
+          <div class="category">
+            <img src="https://elegancesenegal.com/wp-content/uploads/2022/05/IMG_20220421_231223_263.webp" alt="Rolex">
+            <div class="category-bottom">
+                <a href="hublot.html"> <span class="category-name">HUBLOT</span>
+              <span class="category-arrow">→</span></a>
+            </div>
+          </div>
+          <div class="category">
+            <img src="https://media.gqmagazine.fr/photos/63a32c7916703168d638c975/16:9/w_2560%2Cc_limit/patek.jpeg" alt="Rolex">
+            <div class="category-bottom">
+                <a href="patek.html"> <span class="category-name">PATEK PHILIPPE</span>
+              <span class="category-arrow">→</span></a>
+            </div>
+          </div>
+          <div class="category">
+            <img src="https://www.nosmontres.com/uploads/montre-audemars-piguet-Royal-Oak-30fE.jpeg" alt="Rolex">
+            <div class="category-bottom">
+                <a href="aumdemares.html"> <span class="category-name">AUDEMARES PIGUET</span>
+              <span class="category-arrow">→</span></a>
+            </div>
+          </div>
+          <div class="category">
+            <img src="https://scontent.falg7-6.fna.fbcdn.net/v/t1.15752-9/527480884_768603978896742_3314990316247253914_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=x5eyxanHASAQ7kNvwEfNCq3&_nc_oc=AdnUGzpf01mI6FJ4sFEyc1gHWtgM8gxakRBxgk25lg24f8QXg4_4WYnfRFImwf3LbHY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg7-6.fna&oh=03_Q7cD3gHo9wDug5TZCVbsaTS25X4MFsOhCysdKemrB06Gvr1oiA&oe=690C08AD" alt="Rolex">
+            <div class="category-bottom">
+              <a href="rolex3a.html"> <span class="category-name">ROLEX 3A</span>
+              <span class="category-arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="arrow right">→</button>
+    </div>
+
+    <div class="show-all">
+      <a href="allproduits.html" class="btn">TOUT AFFICHER</a>
+    </div>
+  </div>
+</section>
+
+
+<div class="custom-shapes-section">
+    <h2 class="custom-section-title">ACHETER PAR FORME</h2>
+    <div class="custom-shapes-grid">
+        <div class="custom-shape-item">
+            <a href="patek.html">
+                <div class="custom-shape-image">
+                    <img src="https://www.journalduluxe.fr/files/resize/outside/875-875-tiffany-co-patek_8d2ee449a52bb3c8f7c3f381ad4da97e.png" alt="Patek Philippe">
+                </div>
+                <div class="custom-shape-name">PATEK</div>
+            </a>
+        </div>
+        
+        <div class="custom-shape-item">
+            <a href="hublot.html">
+                <div class="custom-shape-image">
+                    <img src="https://i5.walmartimages.com/seo/Hublot-Big-Bang-Steel-Titanium-Black-Dial-Automatic-Mens-Watch-301-SX-1170-RX_bffdad40-2de2-4be3-b313-d288057209a2.8d8678a0b631f8fed0a830199d44bc02.jpeg" alt="Hublot">
+                </div>
+                <div class="custom-shape-name">Hublot</div>
+            </a>
+        </div>
+        
+        <div class="custom-shape-item">
+            <a href="omega.html">
+                <div class="custom-shape-image">
+                    <img src="https://www.zeitauktion.com/cdn/shop/files/2304893_01_2k.jpg?v=1747352294&width=2400" alt="Omega" >
+                </div>
+                <div class="custom-shape-name">Omega</div>
+            </a>
+        </div>
+        
+        <div class="custom-shape-item">
+            <a href="rolex3a.html">
+                <div class="custom-shape-image">
+                    <img src="https://d29lyl02lvyvgt.cloudfront.net/bespoke/watch/upright/m126503-0003.webp" alt="Rolex 3A">
+                </div>
+                <div class="custom-shape-name">Rolex 3A</div>
+            </a>
+        </div>
+        
+        <div class="custom-shape-item">
+            <a href="rolexfemme.html">
+                <div class="custom-shape-image">
+                    <img src="https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-grid/c_limit,w_1920/v1/catalogue/2025/upright-bba-with-shadow/m126281rbr-0001.jpg" alt="Rolex Femme">
+                </div>
+                <div class="custom-shape-name">Rolex Femme</div>
+            </a>
+        </div>
+        
+        <div class="custom-shape-item">
+            <a href="rolex.html">
+                <div class="custom-shape-image">
+                    <img src="https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-grid/c_limit,w_1920/v1/catalogue/2025/upright-bba-with-shadow/m127386tbr-0001.jpg" alt="Rolex">
+                </div>
+                <div class="custom-shape-name">Rolex</div>
+            </a>
+        </div>
+        
+        <div class="custom-shape-item" id="Audemars">
+            <a href="aumdemares.html">
+                <div class="custom-shape-image" id="Audemars25">
+                    <img src="https://cdn-images.farfetch-contents.com/27/36/34/81/27363481_57207121_1000.jpg" alt="Audemars Piguet">
+                </div>
+                <div class="custom-shape-name" id="Audemars2">Audemars Piguet</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <section class="hero-section">
+        <img src="https://magazine.chrono24.com/cdn-cgi/image/f=auto,metadata=none,fit=cover,q=65,w=1190,h=595,dpr=2.0/2023/09/ONP-594-2-1.jpg" alt="Bague Royal Legacy avec pierre violette" class="background-image">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1 class="brand-title">Royal Legacy Rings</h1>
+            <a href="aumdemares.html" class="discover-btn">JE DÉCOUVRE →</a>
+        </div>
+    </section>
+
+
+    <section class="exclusives-section">
+  <div class="container">
+    <h1 class="section-title">OFFRES EXCLUSIVES !</h1>
+    <p class="section-subtitle">Découvrez des offres imbattables sur des bijoux exquis !</p>
+
+<div class="cards-container">
+  <div class="card card-limited">
+    <div class="card-overlay">
+      <h2 class="card-title">ÉDITION LIMITÉE</h2>
+      <p class="card-description">Des articles uniques pour vous !</p>
+      <a href="allproduits.html" class="btn-discover">Je découvre</a>
+    </div>
+  </div>
+
+  <div class="card card-sales">
+    <div class="card-overlay">
+      <h2 class="card-title">SOLDES</h2>
+      <p class="card-description">Achetez des bijoux en promotion aujourd'hui.</p>
+      <a href="allproduits.html" class="btn-discover">Je découvre</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+   <section class="social-gallery">
+        <div class="container">
+            <header class="gallery-header">
+                <h2 class="username">@Montre De Luxe</h2>
+                <p class="tagline">#Suivez Nous Sur Les Réseaux Sociaux</p>
+            </header>
+
+            <div class="image-grid">
+                <a href="https://www.instagram.com/Montre De Luxe" class="image-item">
+                    <img src="https://scontent.falg7-1.fna.fbcdn.net/v/t1.15752-9/525201892_1398039621501193_5859882488582802938_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=lQpIPYtuRR4Q7kNvwHGqKXj&_nc_oc=AdmW1XZlU8thUIu-_nKypR0Ky2RLMq7DyxksFdjvZgshOT-V1WGgUet6lLiKdJ8OLhM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg7-1.fna&oh=03_Q7cD3gHJAkf91tv77mzK-7JgDCBlw5aYI2yYkVbMUYpdSu2UNQ&oe=690A825C" alt="Bijoux Montre De Luxe" loading="lazy">
+                    <div class="instagram-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/Montre De Luxe" class="image-item">
+                    <img src="https://scontent.falg7-6.fna.fbcdn.net/v/t1.15752-9/509415747_1641495196384850_5035145835415098838_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_ohc=IVyK13QZZqsQ7kNvwH_XFg7&_nc_oc=Adk3eWjg87RLr4eWRoXsA13YRkw6BZl0m98trQcCBjul4c6ZJ50qJjifjkvA_b6ns4s&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg7-6.fna&oh=03_Q7cD3gFUCP_G1H_rhMByDsNNmZyetElVyqo_gHGHHfp3YGCk9w&oe=690A7ADF" alt="Bijoux Montre De Luxe" loading="lazy">
+                    <div class="instagram-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/Montre De Luxe" class="image-item">
+                    <img src="https://scontent.falg6-2.fna.fbcdn.net/v/t1.15752-9/518720927_2576295212708777_1289055260113444126_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_ohc=MI1QsUGOzZMQ7kNvwGn1fe6&_nc_oc=AdnUroyh1wuDAcskWnFlfPda-lyaxFqqq4UAPaZrB8L0-DQJr79WxcX1qxm41rRdXzs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg6-2.fna&oh=03_Q7cD3gHj_YOMOWs12JekAha_cj-SBxUwRElRwDRG9TIQx5qSug&oe=690A88D1" alt="Bijoux Montre De Luxe" loading="lazy">
+                    <div class="instagram-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/Montre De Luxe" class="image-item">
+                    <img src="https://scontent.falg7-1.fna.fbcdn.net/v/t1.15752-9/553556139_1559152428590904_153270084557074188_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=2Wuxwx5sTz8Q7kNvwFbSqAP&_nc_oc=AdlOlN5RwChqHbcwyu0UhBVP6a-TpPmH0LuOyxbMA6QSWSOx5h-Kc8n_-jJas3sXeTQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg7-1.fna&oh=03_Q7cD3gFkt5crnnO22YfsBolk5_VTHEKeqiqvSgjGGEx9Ce13cQ&oe=690AB06B" alt="Bijoux Montre De Luxe" loading="lazy">
+                    <div class="instagram-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/Montre De Luxe" class="image-item">
+                    <img src="https://scontent.falg7-1.fna.fbcdn.net/v/t1.15752-9/553556139_1559152428590904_153270084557074188_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=2Wuxwx5sTz8Q7kNvwFbSqAP&_nc_oc=AdlOlN5RwChqHbcwyu0UhBVP6a-TpPmH0LuOyxbMA6QSWSOx5h-Kc8n_-jJas3sXeTQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg7-1.fna&oh=03_Q7cD3gFkt5crnnO22YfsBolk5_VTHEKeqiqvSgjGGEx9Ce13cQ&oe=690AB06B" alt="Bijoux Montre De Luxe" loading="lazy">
+                    <div class="instagram-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+  <section class="usp-section">
+        <div class="container">
+            <div class="usp-grid">
+                
+                <div class="usp-item">
+                    <div class="usp-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="usp-title">RETOUR FACILE 30 JOURS</h3>
+                    <p class="usp-description">Si Vous N'êtes Pas Satisfait, Vous Avez 30 Jours Pour Un Échange Ou Un Remboursement Complet. Votre Satisfaction, Notre Priorité.</p>
+                </div>
+
+                <div class="usp-item">
+                    <div class="usp-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="usp-title">PAIEMENT SÉCURISÉ</h3>
+                    <p class="usp-description">Vos Données Personnelles Sont Protégées Par Un Cryptage SSL Avancé. Achetez En Toute Confiance.</p>
+                </div>
+
+                <div class="usp-item">
+                    <div class="usp-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="usp-title">SUPPORT 7J/7</h3>
+                    <p class="usp-description">Notre Équipe Dédiée Est Toujours Prête À Répondre À Vos Questions Et Vous Assister, 7 Jours Sur 7.</p>
+                </div>
+
+                <div class="usp-item">
+                    <div class="usp-icon">
+                        <i class="fa-regular fa-gem"></i>
+                    </div>
+                    <h3 class="usp-title">QUALITÉ CERTIFIÉE</h3>
+                    <p class="usp-description">Tous Nos Montres Sont En Moissanite Certifiée, Garantissant Un Éclat Et Une Qualité Supérieure.</p>
+                </div>
+
+            </div>
+                </section>
+
+<br><br><br><br><br><br>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Branding -->
+      <div class="footer-col footer-branding">
+        <a href="/" class="footer-logo">
+          <img src="https://scontent.falg6-1.fna.fbcdn.net/v/t1.15752-9/554322545_1529156254887922_7655227848082771962_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=m63xPoUNZyIQ7kNvwEAllVP&_nc_oc=Adl-PBNOr82Cw9HWK_wdib8Nrtg0PSVIQd_2161b9OOf_KNP_H4XdyXbKTwE_zAxP88&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg6-1.fna&oh=03_Q7cD3gFn8Vbopf1hKeJ6aDNh7WyKzx1l8a5uORB2OW1kc5Owhw&oe=690A90B1" alt="MA Logo" loading="lazy">
+        </a>
+        <div class="social-links">
+          <a href="https://www.instagram.com/Montre De Luxe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/Montre De Luxe" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@maa.accessoires" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Catégories -->
+      <div class="footer-col categories-dropdown">
+        <h3>CATÉGORIES</h3>
+        <!-- Liste pour desktop -->
+        <ul>
+          <li><a href="rolex.html">Rolex</a></li>
+          <li><a href="omega.html">Omega</a></li>
+          <li><a href="hublot.html">Hublot</a></li>
+          <li><a href="patek.html">Patek Philippe</a></li>
+          <li><a href="aumdemares.html">Audemars Piguet</a></li>
+          <li><a href="rolex3a.html">Rolex 3A</a></li>
+        </ul>
+        <!-- Select pour mobile -->
+        <select aria-label="Sélectionner une catégorie" onchange="if(this.value) window.location.href=this.value">
+          <li><a href="rolex.html">Rolex</a></li>
+          <li><a href="omega.html">Omega</a></li>
+          <li><a href="hublot.html">Hublot</a></li>
+          <li><a href="patek.html">Patek Philippe</a></li>
+          <li><a href="aumdemares.html">Audemars Piguet</a></li>
+          <li><a href="rolex3a.html">Rolex 3A</a></li>
+        </select>
+      </div>
+
+      <!-- Politiques -->
+      <div class="footer-col policies-dropdown">
+        <h3>POLITIQUES DU MAGASIN</h3>
+        <!-- Liste pour desktop -->
+        <ul>
+          <li><a href="Politique.html">Politique de confidentialité</a></li>
+        </ul>
+        <!-- Select pour mobile -->
+
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col footer-newsletter">
+        <h3>ENTREZ VOTRE EMAIL POUR SUIVRE LES TENDANCES ET OBTENIR DES BONUS EXCLUSIFS!</h3>
+        <form action="#" method="post" class="newsletter-form">
+          <input type="email" name="email" placeholder="Email" aria-label="Votre adresse email" required>
+          <button type="submit">S'INSCRIRE</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2025, Montre De Luxe. Tous droits réservés.</p>
+
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+  <title>Paiement - MaLuxury</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Votre CSS reste identique */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .payment-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .payment-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1c3934;
+      margin-bottom: 5px;
+    }
+
+    .payment-header p {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .payment-content {
+      display: flex;
+      gap: 30px;
+    }
+
+    .payment-form, .cart-summary {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .payment-form {
+      flex: 2;
+    }
+
+    .cart-summary {
+      flex: 1;
+      height: fit-content;
+    }
+
+    .form-section {
+      margin-bottom: 25px;
+    }
+
+    .form-section h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1c3934;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 8px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      flex: 1;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-group label .required {
+      color: #e74c3c;
+      margin-left: 4px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #1c3934;
+      box-shadow: 0 0 0 3px rgba(28, 57, 52, 0.1);
+    }
+
+    .form-control.error {
+      border-color: #e74c3c;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .delivery-options, .packaging-options {
+      display: flex;
+      gap: 15px;
+    }
+
+    .delivery-option, .packaging-option {
+      flex: 1;
+      position: relative;
+    }
+
+    .delivery-option input[type="radio"], .packaging-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .delivery-option label, .packaging-option label {
+      display: block;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .delivery-option input[type="radio"]:checked + label, 
+    .packaging-option input[type="radio"]:checked + label {
+      border-color: #1c3934;
+      background: #f0f7f5;
+    }
+
+    .delivery-option label:hover, .packaging-option label:hover {
+      border-color: #1c3934;
+    }
+
+    .delivery-price, .packaging-price {
+      font-weight: 600;
+      color: #1c3934;
+      margin-top: 4px;
+    }
+
+    .cart-items {
+      margin-bottom: 20px;
+      max-height: 350px;
+      overflow-y: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-details strong {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .cart-item-price, .quantity-badge {
+      font-size: 13px;
+      color: #1c3934;
+      font-weight: 500;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .summary-row.total {
+      font-weight: 600;
+      font-size: 16px;
+      border-top: 2px solid #e0e0e0;
+      padding-top: 8px;
+    }
+
+    .notes-section textarea {
+      width: 100%;
+      min-height: 90px;
+      padding: 10px 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: #1c3934;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #091d10;
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Nouveau style pour le bouton de retour au shopping */
+    .back-to-shopping-btn {
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      color: #1c3934;
+      border: 2px solid #1c3934;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 15px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .back-to-shopping-btn:hover {
+      background: #1c3934;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #1c3934;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 8px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .success-message {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 30px 0;
+      color: #666;
+    }
+
+    .empty-cart i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #ddd;
+    }
+
+    .back-to-shop {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 18px;
+      background: #1c3934;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .back-to-shop:hover {
+      background: #091d10;
+    }
+
+    .debug-info {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      color: #856404;
+      padding: 8px;
+      border-radius: 5px;
+      font-size: 12px;
+      word-break: break-all;
+      margin-bottom: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .payment-content {
+        flex-direction: column;
+      }
+
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .delivery-options, .packaging-options {
+        flex-direction: column;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      .payment-form, .cart-summary {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="payment-header">
+    <h1>Finaliser votre commande</h1>
+    <p>Veuillez remplir tous les champs obligatoires pour valider votre paiement</p>
+  </div>
+
+  <div class="success-message" id="successMessage">
+    <i class="fas fa-check-circle"></i> Votre commande a été validée avec succès !
+  </div>
+
+  <div class="payment-content">
+    <form class="payment-form" id="paymentForm">
+      <!-- Informations personnelles -->
+      <div class="form-section">
+        <h2><i class="fas fa-user"></i> Informations personnelles</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nom">Nom <span class="required">*</span></label>
+            <input type="text" id="nom" name="nom" class="form-control" required>
+            <div class="error-message">Veuillez entrer votre nom</div>
+          </div>
+          <div class="form-group">
+            <label for="prenom">Prénom <span class="required">*</span></label>
+            <input type="text" id="prenom" name="prenom" class="form-control" required>
+            <div class="error-message">Veuillez entrer votre prénom</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="telephone">Téléphone <span class="required">*</span></label>
+          <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="05XX XX XX XX" required>
+          <div class="error-message">Veuillez entrer un numéro de téléphone valide</div>
+        </div>
+      </div>
+
+      <!-- Adresse de livraison -->
+      <div class="form-section">
+        <h2><i class="fas fa-map-marker-alt"></i> Adresse de livraison</h2>
+        <div class="form-group">
+          <label for="wilaya">Wilaya <span class="required">*</span></label>
+          <select id="wilaya" name="wilaya" class="form-control" required>
+            <option value="">Sélectionnez une wilaya</option>
+          </select>
+          <div class="error-message">Veuillez sélectionner une wilaya</div>
+        </div>
+        <div class="form-group">
+          <label for="commune">Commune <span class="required">*</span></label>
+          <input type="text" id="commune" name="commune" class="form-control" required>
+          <div class="error-message">Veuillez entrer votre commune</div>
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse complète <span class="required">*</span></label>
+          <input type="text" id="adresse" name="adresse" class="form-control" placeholder="Rue, numéro, quartier..." required>
+          <div class="error-message">Veuillez entrer votre adresse</div>
+        </div>
+      </div>
+
+      <!-- Options de livraison -->
+      <div class="form-section">
+        <h2><i class="fas fa-truck"></i> Options de livraison</h2>
+        <div class="delivery-options">
+          <div class="delivery-option">
+            <input type="radio" id="bureau" name="delivery" value="bureau" checked>
+            <label for="bureau">
+              <i class="fas fa-building"></i>
+              <div>Livraison au bureau</div>
+              <div class="delivery-price" id="bureauPrice">DA 0</div>
+            </label>
+          </div>
+          <div class="delivery-option">
+            <input type="radio" id="domicile" name="delivery" value="domicile">
+            <label for="domicile">
+              <i class="fas fa-home"></i>
+              <div>Livraison à domicile</div>
+              <div class="delivery-price" id="domicilePrice">DA 0</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Options d'emballage -->
+      <div class="form-section">
+        <h2><i class="fas fa-gift"></i> Options d'emballage <span class="required">*</span></h2>
+        <div class="packaging-options">
+          <div class="packaging-option">
+            <input type="radio" id="watch-only" name="packaging" value="watch-only" required>
+            <label for="watch-only">
+              <i class="fas fa-clock"></i>
+              <div>Montre seule</div>
+              <div class="packaging-price">+ DA 0</div>
+            </label>
+          </div>
+          <div class="packaging-option">
+            <input type="radio" id="watch-box" name="packaging" value="watch-box" required>
+            <label for="watch-box">
+              <i class="fas fa-box"></i>
+              <div>Montre avec boîte</div>
+              <div class="packaging-price">+ DA 1,000</div>
+            </label>
+          </div>
+          <div class="packaging-option">
+            <input type="radio" id="watch-case" name="packaging" value="watch-case" required>
+            <label for="watch-case">
+              <i class="fas fa-gem"></i>
+              <div>Montre avec coffret</div>
+              <div class="packaging-price">+ DA 2,500</div>
+            </label>
+          </div>
+        </div>
+        <div class="error-message" id="packaging-error">Veuillez sélectionner une option d'emballage</div>
+      </div>
+
+      <!-- Notes -->
+      <div class="form-section notes-section">
+        <h2><i class="fas fa-sticky-note"></i> Notes additionnelles</h2>
+        <textarea id="notes" name="notes" placeholder="Indiquez ici toute information supplémentaire pour votre livraison..."></textarea>
+      </div>
+
+      <!-- Boutons d'action -->
+      <div class="button-container">
+        <a href="rolex.html" class="back-to-shopping-btn">
+          <i class="fas fa-arrow-left"></i> Continuer mes achats
+        </a>
+        
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <i class="fas fa-lock"></i> Valider le paiement
+        </button>
+      </div>
+
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Traitement de votre paiement...</p>
+      </div>
+    </form>
+
+    <div class="cart-summary">
+      <h3 style="margin-bottom: 20px; color: #1c3934;">Récapitulatif de la commande</h3>
+      
+      <!-- Information de débogage -->
+      <div class="debug-info" id="debugInfo" style="display: none;"></div>
+      
+      <div class="cart-items" id="cartItems">
+        <!-- Les produits du panier seront affichés ici -->
+      </div>
+      
+      <div class="empty-cart" id="emptyCart" style="display: none;">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Votre panier est vide</p>
+        <a href="rolex.html" class="back-to-shop">Retour aux produits</a>
+      </div>
+      
+      <div id="orderSummary" style="display: none;">
+        <div class="summary-row">
+          <span>Sous-total des produits:</span>
+          <span id="subtotal">DA 0</span>
+        </div>
+        <div class="summary-row">
+          <span>Frais d'emballage:</span>
+          <span id="packagingFee">DA 0</span>
+        </div>
+        <div class="summary-row">
+          <span>Frais de livraison:</span>
+          <span id="deliveryFee">DA 0</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span id="total">DA 0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<script>
+  
+// -----------------------------
+// 🔹 Prix de livraison par wilaya et type
+// -----------------------------
+// -----------------------------
+// 🔹 Prix de livraison par wilaya et type (VERSION FRANÇAISE)
+// -----------------------------
+const deliveryPrices = {
+  "Adrar": { bureau: 900, domicile: 1400 },
+  "Chlef": { bureau: 450, domicile: 750 },
+  "Laghouat": { bureau: 600, domicile: 950 },
+  "Oum El Bouaghi": { bureau: 450, domicile: 750 },
+  "Batna": { bureau: 450, domicile: 750 },
+  "Béjaïa": { bureau: 450, domicile: 750 },
+  "Biskra": { bureau: 450, domicile: 750 },
+  "Béchar": { bureau: 600, domicile: 900 },
+  "Blida": { bureau: 450, domicile: 750 },
+  "Bouira": { bureau: 450, domicile: 750 },
+  "Tamanrasset": { bureau: 1000, domicile: 1600 },
+  "Tébessa": { bureau: 450, domicile: 750 },
+  "Tlemcen": { bureau: 550, domicile: 850 },
+  "Tiaret": { bureau: 450, domicile: 750 },
+  "Tizi Ouzou": { bureau: 450, domicile: 750 },
+  "Alger": { bureau: 450, domicile: 600 },
+  "Djelfa": { bureau: 600, domicile: 950 },
+  "Jijel": { bureau: 450, domicile: 750 },
+  "Sétif": { bureau: 450, domicile: 750 },
+  "Saïda": { bureau: 450, domicile: 750 },
+  "Skikda": { bureau: 450, domicile: 750 },
+  "Sidi Bel Abbès": { bureau: 450, domicile: 750 },
+  "Annaba": { bureau: 450, domicile: 750 },
+  "Guelma": { bureau: 450, domicile: 750 },
+  "Constantine": { bureau: 450, domicile: 750 },
+  "Médéa": { bureau: 450, domicile: 750 },
+  "Mostaganem": { bureau: 450, domicile: 750 },
+  "M'Sila": { bureau: 450, domicile: 750 },
+  "Mascara": { bureau: 450, domicile: 750 },
+  "Ouargla": { bureau: 600, domicile: 950 },
+  "Oran": { bureau: 450, domicile: 750 },
+  "El Bayadh": { bureau: 600, domicile: 950 },
+  "Illizi": { bureau: null, domicile: 1500 },
+  "Tindouf": { bureau: null, domicile: 1400 },
+  "Ghardaïa": { bureau: 600, domicile: 950 },
+  "Beni Abbès": { bureau: 600, domicile: 950 },
+  "In Salah": { bureau: null, domicile: 1600 },
+  "In Guezzam": { bureau: null, domicile: 2000 },
+  "El M'Ghair": { bureau: null, domicile: 950 },
+  "El Menia": { bureau: null, domicile: 950 },
+  "Djanet": { bureau: null, domicile: 1600 },
+  "Timimoun": { bureau: null, domicile: 2000 },
+  "Touggourt": { bureau: 600, domicile: 950 },
+  "Bordj Badji Mokhtar": { bureau: null, domicile: 2000 },
+  "Béni Mered": { bureau: 450, domicile: 750 }
+};
+
+// -----------------------------
+// 🔹 Variables globales
+// -----------------------------
+let subtotal = 0;
+let currentDeliveryFee = 0;
+let currentPackagingFee = 0;
+let currentWilaya = null;
+
+// -----------------------------
+// 🔹 Initialisation
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  loadCartData();
+  populateWilayas();
+  setupEventListeners();
+  updateTotal();
+});
+
+// -----------------------------
+// 🔹 Charger le panier
+// -----------------------------
+function loadCartData() {
+  const cartData = localStorage.getItem("maa_luxury_cart");
+  let cart = [];
+
+  try {
+    cart = JSON.parse(cartData || "[]");
+  } catch {
+    cart = [];
+  }
+
+  if (Array.isArray(cart)) cart = { items: cart };
+  if (!cart.items) cart.items = [];
+
+  const cartItemsContainer = document.getElementById("cartItems");
+  const emptyCart = document.getElementById("emptyCart");
+  const orderSummary = document.getElementById("orderSummary");
+
+  if (cart.items.length === 0) {
+    cartItemsContainer.style.display = "none";
+    orderSummary.style.display = "none";
+    emptyCart.style.display = "block";
+    document.getElementById("submitBtn").disabled = true;
+    return;
+  }
+
+  emptyCart.style.display = "none";
+  orderSummary.style.display = "block";
+  cartItemsContainer.style.display = "block";
+  subtotal = 0;
+  cartItemsContainer.innerHTML = "";
+
+  cart.items.forEach(item => {
+    const itemTotal = (item.price || 0) * (item.quantity || 1);
+    subtotal += itemTotal;
+
+    const imgSrc = item.image || item.images?.[0] || "https://via.placeholder.com/80x80";
+    cartItemsContainer.innerHTML += `
+      <div class="cart-item">
+        <img src="${imgSrc}" alt="${item.name}" />
+        <div class="cart-item-details">
+          <strong>${item.name}</strong><br>
+          <span class="cart-item-price">${item.quantity} × ${item.price} DA = <b>${itemTotal} DA</b></span>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById("subtotal").textContent = `DA ${subtotal.toLocaleString("fr-DZ")}`;
+  updateTotal();
+}
+
+// -----------------------------
+// 🔹 Wilaya
+// -----------------------------
+function populateWilayas() {
+  const select = document.getElementById("wilaya");
+  Object.keys(deliveryPrices).forEach(wilaya => {
+    const opt = document.createElement("option");
+    opt.value = wilaya;
+    opt.textContent = wilaya;
+    select.appendChild(opt);
+  });
+}
+
+// -----------------------------
+// 🔹 Écouteurs
+// -----------------------------
+function setupEventListeners() {
+  document.getElementById("wilaya").addEventListener("change", e => {
+    currentWilaya = e.target.value;
+    updateDeliveryPrices();
+    updateTotal();
+  });
+
+  document.querySelectorAll('input[name="delivery"]').forEach(r => {
+    r.addEventListener("change", updateTotal);
+  });
+
+  document.querySelectorAll('input[name="packaging"]').forEach(r => {
+    r.addEventListener("change", updatePackagingFee);
+  });
+
+  document.getElementById("paymentForm").addEventListener("submit", handleFormSubmit);
+}
+
+// -----------------------------
+// 🔹 Mettre à jour les prix de livraison
+// -----------------------------
+function updateDeliveryPrices() {
+  if (!currentWilaya) return;
+  
+  const bureauPrice = deliveryPrices[currentWilaya].bureau;
+  const domicilePrice = deliveryPrices[currentWilaya].domicile;
+  
+  document.getElementById("bureauPrice").textContent = bureauPrice ? `DA ${bureauPrice}` : "Non disponible";
+  document.getElementById("domicilePrice").textContent = domicilePrice ? `DA ${domicilePrice}` : "Non disponible";
+  
+  // Désactiver l'option non disponible
+  const bureauOption = document.getElementById("bureau");
+  const domicileOption = document.getElementById("domicile");
+  
+  if (bureauPrice === null) {
+    bureauOption.disabled = true;
+    if (bureauOption.checked) {
+      domicileOption.checked = true;
+    }
+  } else {
+    bureauOption.disabled = false;
+  }
+  
+  if (domicilePrice === null) {
+    domicileOption.disabled = true;
+    if (domicileOption.checked) {
+      bureauOption.checked = true;
+    }
+  } else {
+    domicileOption.disabled = false;
+  }
+}
+
+// -----------------------------
+// 🔹 Calcul du frais d'emballage
+// -----------------------------
+function updatePackagingFee() {
+  const packagingType = document.querySelector('input[name="packaging"]:checked')?.value;
+  
+  switch(packagingType) {
+    case "watch-only":
+      currentPackagingFee = 0;
+      break;
+    case "watch-box":
+      currentPackagingFee = 1000;
+      break;
+    case "watch-case":
+      currentPackagingFee = 2000;
+      break;
+    default:
+      currentPackagingFee = 0;
+  }
+  
+  updateTotal();
+}
+
+// -----------------------------
+// 🔹 Calcul du total
+// -----------------------------
+function updateTotal() {
+  const deliveryType = document.querySelector('input[name="delivery"]:checked')?.value || "bureau";
+  
+  if (currentWilaya && deliveryPrices[currentWilaya] && deliveryPrices[currentWilaya][deliveryType] !== null) {
+    currentDeliveryFee = deliveryPrices[currentWilaya][deliveryType];
+  } else {
+    currentDeliveryFee = 0;
+  }
+  
+  const total = subtotal + currentDeliveryFee + currentPackagingFee;
+
+  document.getElementById("deliveryFee").textContent = `DA ${currentDeliveryFee.toLocaleString("fr-DZ")}`;
+  document.getElementById("packagingFee").textContent = `DA ${currentPackagingFee.toLocaleString("fr-DZ")}`;
+  document.getElementById("total").textContent = `DA ${total.toLocaleString("fr-DZ")}`;
+}
+
+// -----------------------------
+// 🔹 Fonction pour sauvegarder la commande dans Firebase
+// -----------------------------
+async function saveOrderToFirebase(orderData) {
+  // Configuration Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyBB8zPrG4MjAqBm1SOxIFQdWtiCmz_v92s",
+    authDomain: "luxur-6b128.firebaseapp.com",
+    projectId: "luxur-6b128",
+    storageBucket: "luxur-6b128.firebasestorage.app",
+    messagingSenderId: "900453735371",
+    appId: "1:900453735371:web:e32188ac6ea261084c344e",
+    measurementId: "G-MLSDC2JWL8"
+  };
+  
+  // Initialiser Firebase s'il ne l'est pas déjà
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  const db = firebase.firestore();
+  
+  try {
+    // Ajouter la commande à la collection "orders"
+    const docRef = await db.collection('orders').add(orderData);
+    console.log("✅ Commande enregistrée avec ID: ", docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error("❌ Erreur Firebase:", error);
+    throw error;
+  }
+}
+
+// -----------------------------
+// 🔹 Soumission du formulaire (FONCTION UNIQUE ET CORRECTE)
+// -----------------------------
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  
+  console.log("🔄 Début de la soumission du formulaire...");
+  
+  if (!validateForm()) {
+    console.log("❌ Validation du formulaire échouée");
+    return;
+  }
+
+  const submitBtn = document.getElementById("submitBtn");
+  const loading = document.getElementById("loading");
+  submitBtn.disabled = true;
+  loading.style.display = "block";
+
+  // Récupérer les données du panier
+  const cartData = localStorage.getItem("maa_luxury_cart");
+  let cart = [];
+  try {
+    cart = JSON.parse(cartData || "[]");
+    if (Array.isArray(cart)) cart = { items: cart };
+    if (!cart.items) cart.items = [];
+    console.log("📦 Panier chargé:", cart.items.length, "produits");
+  } catch (error) {
+    console.error("❌ Erreur lecture panier:", error);
+    cart = { items: [] };
+  }
+
+  // Préparer les données de la commande
+  const orderData = {
+    timestamp: new Date().toISOString(),
+    date: new Date().toLocaleString('fr-FR'),
+    status: "en_attente",
+    nom: document.getElementById("nom").value.trim(),
+    prenom: document.getElementById("prenom").value.trim(),
+    telephone: document.getElementById("telephone").value.trim(),
+    wilaya: document.getElementById("wilaya").value,
+    commune: document.getElementById("commune").value.trim(),
+    adresse: document.getElementById("adresse").value.trim(),
+    livraison: document.querySelector('input[name="delivery"]:checked').value,
+    emballage: document.querySelector('input[name="packaging"]:checked').value,
+    frais_emballage: currentPackagingFee,
+    notes: document.getElementById("notes").value.trim(),
+    sous_total: subtotal,
+    frais_livraison: currentDeliveryFee,
+    total: subtotal + currentDeliveryFee + currentPackagingFee,
+    produits: cart.items.map(item => ({
+      nom: item.name,
+      quantite: item.quantity,
+      prix: item.price,
+      image: item.image || item.images?.[0] || '',
+      total: (item.price * item.quantity)
+    })),
+    details_prix: {
+      sous_total: subtotal,
+      emballage: currentPackagingFee,
+      livraison: currentDeliveryFee,
+      total: subtotal + currentDeliveryFee + currentPackagingFee
+    }
+  };
+
+  console.log("📋 Données de commande préparées:", orderData);
+
+  try {
+    console.log("🔥 Tentative d'envoi vers Firebase...");
+    
+    // Envoyer les données à Firebase
+    await saveOrderToFirebase(orderData);
+    
+    console.log("✅ Commande envoyée avec succès !");
+    
+    document.getElementById("successMessage").style.display = "block";
+    document.getElementById("paymentForm").reset();
+    localStorage.removeItem("maa_luxury_cart");
+    
+    // Redirection après succès
+    setTimeout(() => {
+      window.location.href = "rolex.html";
+    }, 3000);
+    
+  } catch (err) {
+    console.error("❌ Erreur lors de l'envoi:", err);
+    
+    // Afficher plus de détails sur l'erreur
+    let errorMessage = "Une erreur est survenue lors de l'envoi de votre commande. ";
+    
+    if (err.message && err.message.includes('permission')) {
+      errorMessage += "Problème d'autorisation Firebase. Vérifiez les règles de sécurité.";
+    } else if (err.message && err.message.includes('network')) {
+      errorMessage += "Problème de connexion internet.";
+    } else {
+      errorMessage += "Veuillez réessayer.";
+    }
+    
+    alert(errorMessage);
+  } finally {
+    submitBtn.disabled = false;
+    loading.style.display = "none";
+  }
+}
+
+// -----------------------------
+// 🔹 Validation du formulaire
+// -----------------------------
+function validateForm() {
+  let isValid = true;
+  
+  // Réinitialiser les erreurs
+  document.querySelectorAll('.error-message').forEach(msg => {
+    msg.style.display = 'none';
+  });
+  document.querySelectorAll('.form-control').forEach(input => {
+    input.classList.remove('error');
+  });
+
+  // Validation des champs requis
+  const requiredFields = [
+    'nom', 'prenom', 'telephone', 'wilaya', 'commune', 'adresse'
+  ];
+
+  requiredFields.forEach(fieldId => {
+    const field = document.getElementById(fieldId);
+    if (!field.value.trim()) {
+      field.classList.add('error');
+      field.nextElementSibling.style.display = 'block';
+      isValid = false;
+    }
+  });
+
+  // Validation du téléphone
+  const phoneField = document.getElementById('telephone');
+  const phoneRegex = /^0[5-7][0-9]{8}$/;
+  if (phoneField.value.trim() && !phoneRegex.test(phoneField.value.trim())) {
+    phoneField.classList.add('error');
+    phoneField.nextElementSibling.style.display = 'block';
+    isValid = false;
+  }
+
+  // Validation de l'option d'emballage
+  const packagingSelected = document.querySelector('input[name="packaging"]:checked');
+  if (!packagingSelected) {
+    document.getElementById('packaging-error').style.display = 'block';
+    isValid = false;
+  }
+
+  // Validation de la disponibilité de la livraison
+  const deliveryType = document.querySelector('input[name="delivery"]:checked')?.value;
+  if (currentWilaya && deliveryPrices[currentWilaya] && deliveryPrices[currentWilaya][deliveryType] === null) {
+    isValid = false;
+    alert("Ce type de livraison n'est pas disponible pour cette wilaya. Veuillez choisir une autre option.");
+  }
+
+  return isValid;
+}
+
+// Initialiser les prix de livraison au chargement
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("bureauPrice").textContent = "DA 0";
+  document.getElementById("domicilePrice").textContent = "DA 0";
+});
+</script>
+
+
+</body>
+</html>

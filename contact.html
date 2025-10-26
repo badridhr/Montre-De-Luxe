@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="contact.css">
+    <title>Maaluxury</title>
+</head>
+<body>
+    <style>
+        
+    </style>
+    <header class="site-header">
+
+    <div class="main-header">
+        <!-- Partie mobile gauche (hamburger + recherche) - CACHÉ SUR DESKTOP -->
+        <div class="mobile-left">
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="26" height="26">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <button class="icon-link search-toggle mobile-search" aria-label="Recherche">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="20" height="20">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Logo mobile -->
+        <div class="header-logo mobile-logo">
+            <a href="/" class="logo-text">Montre De Luxe</a>
+        </div>
+
+        <!-- Partie droite (compte + panier) -->
+        <div class="header-right">
+            <a href="account.html" class="icon-link" aria-label="Compte">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22">
+                    <circle cx="12" cy="7" r="4"/>
+                    <path d="M5.5 21a7 7 0 0 1 13 0"/>
+                </svg>
+            </a>
+            <button class="icon-link cart-toggle" aria-label="Panier">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22">
+                    <path d="M6 6h15l-1.5 9h-12z"/>
+                    <circle cx="9" cy="20" r="1"/>
+                    <circle cx="18" cy="20" r="1"/>
+                </svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+
+        <!-- Partie centre (navigation desktop) -->
+        <div class="header-center">
+            <nav class="nav-menu">
+                <a href="contact.html">CONTACT</a>
+                <a href="rolex.html">ROLEX</a>
+                <a href="omega.html">OMEGA</a>
+            </nav>
+
+            <div class="header-logo desktop-logo">
+                <a href="/" class="logo-text">Montre De Luxe</a>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="hublot.html">HUBLOT</a>
+                <a href="patek.html">PATEK PHILIPPE</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">MORE</a>
+                    <div class="dropdown-menu">
+                        <a href="aumdemares.html">AUDEMARES PIGUET</a>
+                        <a href="rolex3a.html">ROLEX 3A</a>
+                        <a href="rolexfemme.html">ROLEX Femme</a>
+                        <a href="faqs.html">FAQs</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Partie gauche desktop (recherche) - CACHÉ SUR MOBILE -->
+        <div class="header-left">
+            <button class="icon-link search-toggle" aria-label="Recherche">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="20" height="20">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="close-menu" aria-label="Fermer le menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="24" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"/>
+            </svg>
+        </button>
+        
+        <nav class="nav-mobile">
+            <a href="index.html">ACCUEIl</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="rolex.html">ROLEX</a>
+            <a href="omega.html">OMEGA</a>
+            <a href="hublot.html">HUBLOT</a>
+            <a href="patek.html">PATEK PHILIPPE</a>
+            <a href="aumdemares.html">AUDEMARES PIGUET</a>
+            <a href="rolex3a.html">ROLEX 3A</a>
+            <a href="faqs.html">FAQs</a>
+
+        </nav>
+    </div>
+</header>
+
+<!-- Panier sidebar -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Votre panier (<span id="sidebarCartCount">0</span>)</h3>
+        <button class="close-cart" id="closeCart" aria-label="Fermer le panier">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#333" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="shipping-progress" id="shippingProgress"></div>
+
+    <div class="cart-content">
+        <div id="cartItems"></div>
+
+        <div class="empty-cart" id="emptyCartMessage" style="display: none;">
+            <p>Votre panier est vide. 🛍️</p>
+            <a href="/allproduits.html" class="continue-shopping">Continuer les achats</a>
+        </div>
+        
+        <div class="special-instructions" id="specialInstructionsSection" style="display: none;">
+            <label class="instructions-label">Instructions spéciales concernant la commande</label>
+            <div class="instructions-placeholder-box" id="instructionsPlaceholder">Ajouter des instructions spéciales pour votre commande</div>
+            <textarea id="instructionsInput" class="instructions-input" placeholder="Écrivez vos instructions ici..."></textarea>
+        </div>
+    </div>
+
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+        <div class="subtotal">
+            <span>Sous-total</span>
+            <span id="subtotalAmount">DA 0 DZD</span>
+        </div>
+       <button class="checkout-btn" onclick="window.location.href='paiment.html'">JE VALIDE MA COMMANDE</button>
+    </div>
+</div>
+
+    <header class="header">
+        <div class="header-image-wrapper">
+            <img src="https://us.123rf.com/450wm/olegdudko/olegdudko1604/olegdudko160402856/55435323-t%C3%A9l%C3%A9phone.jpg?ver=6" alt="Téléphone vintage" class="header-image"  >
+            <h1 class="header-title">CONTACTEZ-NOUS</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            
+            <!-- SECTION FORMULAIRE -->
+            <section class="form-section">
+                <h2>Contactez-Nous</h2>
+                <!-- N'oubliez pas de remplacer VOTRE_EMAIL_ICI@example.com -->
+                <form action="https://formsubmit.co/VOTRE_EMAIL_ICI@example.com" method="POST" class="contact-form">
+                    
+                    <!-- Champs cachés pour Formsubmit (recommandés) -->
+                    <input type="hidden" name="_subject" value="Nouveau message de votre site web !">
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Redirige l'utilisateur vers une page de remerciement après l'envoi -->
+                    <input type="hidden" name="_next" value="https://votresite.com/merci.html"> 
+
+                    <input type="text" name="name" placeholder="Nom" required>
+                    <input type="email" name="email" placeholder="Email *" required>
+                    <input type="tel" name="phone" placeholder="Numéro de téléphone">
+                    <textarea name="message" placeholder="Votre commentaire" required></textarea>
+                    
+                    <button type="submit" class="submit-btn">ENVOYER</button>
+                </form>
+            </section>
+
+            <!-- SECTION INFORMATIONS -->
+            <section class="info-section">
+                <h2>À votre service</h2>
+                <p>
+                    Nous sommes là pour répondre à toutes vos questions. N'hésitez pas à nous contacter en utilisant le formulaire, ou directement par e-mail.
+                </p>
+                <br>
+                <p>
+                    Vous pouvez aussi nous joindre pour toute demande d'information sur nos produits ou services.
+                </p>
+                <br>
+                <p>
+                    Email : <span class="email">MaaLuxury@gmail.com</span><br>
+                    Numéro : <span class="Numéro">+213 123 456 789</span>
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Branding -->
+      <div class="footer-col footer-branding">
+        <a href="/" class="footer-logo">
+          <img src="https://scontent.falg6-1.fna.fbcdn.net/v/t1.15752-9/554322545_1529156254887922_7655227848082771962_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=m63xPoUNZyIQ7kNvwEAllVP&_nc_oc=Adl-PBNOr82Cw9HWK_wdib8Nrtg0PSVIQd_2161b9OOf_KNP_H4XdyXbKTwE_zAxP88&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg6-1.fna&oh=03_Q7cD3gFn8Vbopf1hKeJ6aDNh7WyKzx1l8a5uORB2OW1kc5Owhw&oe=690A90B1" alt="MA Logo" loading="lazy">
+        </a>
+        <div class="social-links">
+          <a href="https://www.instagram.com/Montre De Luxe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/Montre De Luxe" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@maa.accessoires" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Catégories -->
+      <div class="footer-col categories-dropdown">
+        <h3>CATÉGORIES</h3>
+        <!-- Liste pour desktop -->
+        <ul>
+          <li><a href="/collections/all">Rolex</a></li>
+          <li><a href="/collections/all">Omega</a></li>
+          <li><a href="/collections/all">Hublot</a></li>
+          <li><a href="/collections/all">Patek Philippe</a></li>
+          <li><a href="/collections/all">Audemars Piguet</a></li>
+          <li><a href="/collections/all">Rolex 3A</a></li>
+        </ul>
+        <!-- Select pour mobile -->
+        <select aria-label="Sélectionner une catégorie" onchange="if(this.value) window.location.href=this.value">
+          <option value="/collections/all">Rolex</option>
+          <option value="/collections/all">Omega</option>
+          <option value="/collections/all">Hublot</option>
+          <option value="/collections/all">Patek Philippe</option>
+          <option value="/collections/all">Audemars Piguet</option>
+          <option value="/collections/all">Rolex 3A</option>
+        </select>
+      </div>
+
+      <!-- Politiques -->
+      <div class="footer-col policies-dropdown">
+        <h3>POLITIQUES DU MAGASIN</h3>
+        <!-- Liste pour desktop -->
+        <ul>
+          <li><a href="https://policies.google.com/terms?hl=fr-CA">Politique de confidentialité</a></li>
+        </ul>
+        <!-- Select pour mobile -->
+        <select aria-label="Sélectionner une politique" onchange="if(this.value) window.location.href=this.value">
+          <option value="#">Choisi</option>
+          <option value="https://policies.google.com/terms?hl=fr-CA">Politique de confidentialité</option>
+
+        </select>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col footer-newsletter">
+        <h3>ENTREZ VOTRE EMAIL POUR SUIVRE LES TENDANCES ET OBTENIR DES BONUS EXCLUSIFS!</h3>
+        <form action="#" method="post" class="newsletter-form">
+          <input type="email" name="email" placeholder="Email" aria-label="Votre adresse email" required>
+          <button type="submit">S'INSCRIRE</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2025, Montre De Luxe. Tous droits réservés.</p>
+
+    </div>
+  </div>
+</footer>
+
+<script src="contact.js"></script>
+</body>
+</html>

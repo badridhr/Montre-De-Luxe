@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="site-header">
+    <div class="top-bar">
+        <p>Dépenser 9500 Da & Profitez D'une Livraison Gratuite!</p>
+    </div>
+
+    <div class="main-header">
+        <!-- Partie mobile gauche (hamburger + recherche) - CACHÉ SUR DESKTOP -->
+        <div class="mobile-left">
+            <button class="menu-toggle" aria-label="Ouvrir le menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="26" height="26">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <button class="icon-link search-toggle mobile-search" aria-label="Recherche">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="20" height="20">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Logo mobile -->
+        <div class="header-logo mobile-logo">
+            <a href="/" class="logo-text">Montre De Luxe</a>
+        </div>
+
+        <!-- Partie droite (compte + panier) -->
+        <div class="header-right">
+            <a href="account.html" class="icon-link" aria-label="Compte">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22">
+                    <circle cx="12" cy="7" r="4"/>
+                    <path d="M5.5 21a7 7 0 0 1 13 0"/>
+                </svg>
+            </a>
+            <button class="icon-link cart-toggle" aria-label="Panier">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="22" height="22">
+                    <path d="M6 6h15l-1.5 9h-12z"/>
+                    <circle cx="9" cy="20" r="1"/>
+                    <circle cx="18" cy="20" r="1"/>
+                </svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+
+        <!-- Partie centre (navigation desktop) -->
+        <div class="header-center">
+            <nav class="nav-menu">
+                <a href="contact.html">CONTACT</a>
+                <a href="rolex.html">ROLEX</a>
+                <a href="omega.html">OMEGA</a>
+            </nav>
+
+            <div class="header-logo desktop-logo">
+                <a href="/" class="logo-text">Montre De Luxe</a>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="hublot.html">HUBLOT</a>
+                <a href="patek.html">PATEK PHILIPPE</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">MORE</a>
+                    <div class="dropdown-menu">
+                        <a href="aumdemares.html">AUDEMARES PIGUET</a>
+                        <a href="rolex3a.html">ROLEX 3A</a>
+                        <a href="rolexfemme.html">ROLEX Femme</a>
+                        <a href="faqs.html">FAQs</a>
+                         <a href="rolexfemme.html">ROLEX FEMME</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Partie gauche desktop (recherche) - CACHÉ SUR MOBILE -->
+        <div class="header-left">
+            <button class="icon-link search-toggle" aria-label="Recherche">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="20" height="20">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <button class="close-menu" aria-label="Fermer le menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="24" height="24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"/>
+            </svg>
+        </button>
+        
+        <nav class="nav-mobile">
+            <a href="index.html">ACCUEIl</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="rolex.html">ROLEX</a>
+            <a href="omega.html">OMEGA</a>
+            <a href="hublot.html">HUBLOT</a>
+            <a href="patek.html">PATEK PHILIPPE</a>
+            <a href="aumdemares.html">AUDEMARES PIGUET</a>
+            <a href="rolex3a.html">ROLEX 3A</a>
+            <a href="rolexfemme.html">ROLEX FEMME</a>
+            <a href="faqs.html">FAQs</a>
+
+
+        </nav>
+    </div>
+</header>
+
+<!-- Popup recherche -->
+<div class="search-popup">
+    <div class="search-container">
+        <div class="search-header">
+            <h3>Rechercher dans tous les produits</h3>
+            <button class="close-search" aria-label="Fermer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000" stroke-width="1.5" viewBox="0 0 24 24" width="20" height="20">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="search-box">
+            <form action="rolex.html" method="get" role="search">
+                <div class="search-input-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1c3934" stroke-width="1.5" viewBox="0 0 24 24" width="18" height="18" class="search-icon">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="search" name="q" placeholder="Rechercher Rolex, Omega, Hublot..." aria-label="Recherche dans tous les produits" autofocus>
+                    <button type="submit" style="display: none;">Rechercher</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Suggestions rapides -->
+        <div class="search-suggestions">
+            <p style="margin-bottom: 10px; color: #666; font-size: 14px;">Suggestions :</p>
+            <div class="suggestion-tags">
+            <a href="index.html">ACCUEIl</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="rolex.html">ROLEX</a>
+            <a href="omega.html">OMEGA</a>
+            <a href="hublot.html">HUBLOT</a>
+            <a href="patek.html">PATEK PHILIPPE</a>
+            <a href="aumdemares.html">AUDEMARES PIGUET</a>
+            <a href="rolex3a.html">ROLEX 3A</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Panier sidebar -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Votre panier (<span id="sidebarCartCount">0</span>)</h3>
+        <button class="close-cart" id="closeCart" aria-label="Fermer le panier">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#333" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6l-12 12"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="shipping-progress" id="shippingProgress"></div>
+
+    <div class="cart-content">
+        <div id="cartItems"></div>
+
+        <div class="empty-cart" id="emptyCartMessage" style="display: none;">
+            <p>Votre panier est vide. 🛍️</p>
+            <a href="rolex.html" class="continue-shopping">Continuer les achats</a>
+        </div>
+        
+        <div class="special-instructions" id="specialInstructionsSection" style="display: none;">
+            <label class="instructions-label">Instructions spéciales concernant la commande</label>
+            <div class="instructions-placeholder-box" id="instructionsPlaceholder">Ajouter des instructions spéciales pour votre commande</div>
+            <textarea id="instructionsInput" class="instructions-input" placeholder="Écrivez vos instructions ici..."></textarea>
+        </div>
+    </div>
+
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+        <div class="subtotal">
+            <span>Sous-total</span>
+            <span id="subtotalAmount">DA 0 DZD</span>
+        </div>
+       <button class="checkout-btn" onclick="window.location.href='paiment.html'">JE VALIDE MA COMMANDE</button>
+    </div>
+</div>
+<style>
+     :root {
+        --header-color: #1c3934; /* Vert foncé de votre en-tête */
+        --primary-color-cart: #1c3934; /* Changement de violet à vert */
+        --primary-color-cart-hover: #1c3934; /* Vert plus foncé au survol */
+        --font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif;
+    }
+
+    body {
+
+        margin: 0;
+        padding-top: 120px; 
+            font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif; 
+
+    }
+
+    .site-header {
+            font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif; 
+
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #f1f1f1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        height: auto;
+    }
+
+    .top-bar {
+        background: #000;
+        color: white;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        position: relative;
+        height: 70px;
+    }
+
+    .header-center {
+            font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif; 
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .nav-menu {
+        font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif; 
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #000;
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        position: relative;
+        padding-bottom: 5px;
+    }
+
+    .nav-menu a:hover {
+        color: var(--header-color);
+    }
+
+    .nav-menu a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--header-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+
+    .logo-text {
+        font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif; 
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+        text-decoration: none;
+        letter-spacing: 1.5px;
+        white-space: nowrap; 
+            position: relative;
+    top: 1px;
+
+    }
+
+    .mobile-logo {
+        display: none;
+    }
+
+    .desktop-logo {
+        display: block;
+    }
+
+    .icon-link, 
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+    .icon-link svg, 
+    .menu-toggle svg,
+    .close-menu svg,
+    .close-search svg {
+        stroke: var(--header-color);
+        transition: transform 0.2s, stroke 0.3s;
+        width: 22px; 
+        height: 22px;
+    }
+
+    .icon-link:hover svg {
+        transform: scale(1.1);
+        stroke: #2a524a;
+    }
+
+    .header-left, .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-toggle {
+        text-decoration: none;
+        color: #000;
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        white-space: nowrap;
+        position: relative;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-toggle::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--header-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .dropdown-toggle:hover::after {
+        width: 100%;
+    }
+
+    .dropdown-toggle:hover {
+        color: var(--header-color);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border: 1px solid #f1f1f1;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 15px 20px;
+        display: none;
+        min-width: 200px;
+        z-index: 1001;
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: flex;
+    }
+
+    .dropdown-menu a {
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.3s;
+        white-space: nowrap;
+        padding: 8px 0;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+    .dropdown-menu a:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-menu a:hover {
+        color: var(--header-color);
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 300px;
+        height: 100vh;
+        background: white;
+        border-right: 1px solid #f1f1f1;
+        z-index: 2000;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    .mobile-menu.active {
+        left: 0;
+    }
+
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1999;
+        display: none;
+    }
+
+    .mobile-menu-overlay.active {
+        display: block;
+    }
+
+    .nav-mobile {
+        display: flex;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        gap: 0;
+    }
+
+    .nav-mobile a {
+        text-decoration: none;
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 15px 0;
+        border-bottom: 1px solid #f5f5f5;
+        transition: color 0.3s;
+    }
+
+    .nav-mobile a:hover {
+        color: var(--header-color);
+        background: #f9f9f9;
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    /* Styles pour la recherche */
+    .search-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.98);
+        display: none;
+        flex-direction: column;
+        z-index: 2000;
+        animation: slideDown 0.3s ease;
+    }
+
+    .search-popup.active {
+        display: flex;
+    }
+
+    .search-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        width: 100%;
+    }
+
+    .search-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .search-header h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin: 0;
+        font-family: var(--font-family);
+    }
+
+    .close-search {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        transition: transform 0.2s;
+    }
+
+    .close-search:hover {
+        transform: rotate(90deg);
+    }
+
+    .search-box {
+        margin-bottom: 20px;
+    }
+
+    .search-input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 15px;
+        z-index: 2;
+    }
+
+    .search-input-wrapper input[type="search"] {
+        width: 100%;
+        padding: 15px 15px 15px 45px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: var(--font-family);
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+    .search-input-wrapper input[type="search"]:focus {
+        outline: none;
+        border-color: var(--header-color);
+        box-shadow: 0 0 0 3px rgba(28, 57, 52, 0.1);
+    }
+
+    /* Suggestions de recherche */
+    .search-suggestions {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .suggestion-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .suggestion-tag {
+        display: inline-block;
+        padding: 6px 12px;
+        background: #f5f5f5;
+        color: #333;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        border: 1px solid #e0e0e0;
+    }
+
+    .suggestion-tag:hover {
+        background: var(--header-color);
+        color: white;
+        border-color: var(--header-color);
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* --- PANIER SIDEBAR --- */
+    .cart-sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 380px;
+        height: 100vh;
+        background: white;
+        box-shadow: -2px 0 15px rgba(0,0,0,0.2);
+        transition: right 0.3s ease;
+        z-index: 2001;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart-sidebar.active {
+        right: 0;
+    }
+
+    .cart-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 2000;
+        display: none;
+    }
+
+    .cart-overlay.active {
+        display: block;
+    }
+
+    /* En-tête du panier */
+    .cart-header {
+        background: white;
+        color: black;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .cart-header h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin: 0;
+    }
+
+    .close-cart {
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+    }
+    
+    .close-cart svg {
+        stroke: #333;
+        width: 24px;
+        height: 24px;
+        transition: transform 0.2s;
+    }
+    
+    .close-cart:hover svg {
+        transform: rotate(90deg);
+    }
+    
+    /* Barre de progression de livraison */
+    .shipping-progress {
+        padding: 10px 15px 15px;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .shipping-goal {
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+        color: #333;
+    }
+
+    .shipping-goal strong {
+        color: var(--primary-color-cart);
+        font-weight: 600;
+        display: block; 
+        margin-bottom: 4px;
+        font-size: 14px;
+    }
+
+    .progress-bar-container {
+        height: 8px;
+        background: #e0e0e0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
+
+    .progress-bar-fill {
+        height: 100%;
+        background: var(--primary-color-cart);
+        transition: width 0.3s ease;
+    }
+
+    .cart-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 0 15px;
+    }
+
+    /* Article dans le panier */
+    .cart-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 15px 0;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    .item-details-wrapper {
+        flex: 1;
+        display: flex;
+    }
+
+    .item-image {
+        width: 70px;
+        height: 70px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-right: 15px;
+        flex-shrink: 0;
+        border: 1px solid #eee;
+    }
+
+    .item-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .item-info {
+        flex-grow: 1;
+        padding-right: 10px;
+    }
+
+    .item-name {
+        font-weight: 500;
+        margin-bottom: 3px;
+        color: #333;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .item-variant {
+        color: #666;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    /* Colonne de droite pour prix et suppression */
+    .right-column-controls {
+        display: flex; 
+        flex-direction: column; 
+        align-items: flex-end; 
+        justify-content: space-between;
+        height: 70px;
+    }
+
+    .remove-item-icon {
+        width: 20px;
+        height: 20px;
+        color: #999;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    
+    .remove-item-icon:hover {
+        color: #ff4444;
+    }
+
+    .item-price {
+        font-weight: bold;
+        color: #333;
+        text-align: right;
+        flex-shrink: 0;
+        font-size: 16px;
+    }
+
+    /* Contrôles de quantité */
+    .item-quantity-controls {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        overflow: hidden;
+        flex-shrink: 0;
+        height: 28px;
+        width: 90px;
+    }
+
+    .quantity-btn {
+        width: 28px;
+        height: 28px;
+        background: #fff;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 300;
+        transition: background 0.2s;
+        line-height: 1;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .quantity-btn:hover {
+        background: #f1f1f1;
+    }
+
+    .quantity-value {
+        font-weight: 500;
+        min-width: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #333;
+    }
+    
+    /* Instructions spéciales */
+    .special-instructions {
+        margin: 20px 0;
+        padding: 0 0 10px 0;
+    }
+
+    .instructions-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .instructions-placeholder-box {
+        height: 70px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+        text-align: center;
+        line-height: 70px;
+        font-size: 13px;
+        color: #999;
+        cursor: pointer;
+    }
+    
+    .instructions-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        resize: vertical;
+        min-height: 60px;
+        margin-top: 10px;
+        font-family: var(--font-family);
+        box-sizing: border-box;
+        font-size: 14px;
+        display: none;
+    }
+
+    .cart-footer {
+        padding: 15px;
+        border-top: 1px solid #ddd;
+        background: #fff;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        flex-shrink: 0;
+    }
+
+    .subtotal {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-weight: bold;
+        font-size: 16px;
+        color: #333;
+    }
+    
+    .subtotal span:last-child {
+        font-size: 18px;
+    }
+
+    .checkout-btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--primary-color-cart);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 10px;
+        transition: background 0.3s;
+        text-transform: uppercase;
+    }
+    
+    .checkout-btn:hover {
+        background: var(--primary-color-cart-hover);
+    }
+
+    .view-cart-link {
+        display: block;
+        text-align: center;
+        color: #777;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 13px;
+    }
+    
+    .view-cart-link:hover {
+        text-decoration: underline;
+    }
+    
+    /* Cart Count */
+    .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: var(--primary-color-cart);
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    /* MOBILE LEFT - CACHÉ SUR DESKTOP */
+    .mobile-left {
+        display: none;
+        align-items: center;
+        gap: 25px; 
+    }
+
+    .mobile-search {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 950px) {
+        .main-header {
+            padding: 15px 20px;
+        }
+        
+        .header-center {
+            display: none;
+        }
+        
+        .header-left {
+            display: none;
+        }
+        
+        /* AFFICHER LE HAMBURGER ET LA RECHERCHE MOBILE */
+        .mobile-left {
+            display: flex;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .mobile-search {
+            display: block;
+        }
+        
+        .mobile-logo {
+            display: block;
+        }
+        
+        .desktop-logo {
+            display: none;
+        }
+        
+        .header-right {
+            gap: 15px;
+        }
+        
+        body {
+            padding-top: 110px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .logo-text {
+            font-size: 24px;
+        }
+        
+        .top-bar {
+            font-size: 12px;
+            padding: 6px 0;
+        }
+
+        .search-container {
+            padding: 20px 15px;
+        }
+        
+        .search-header h3 {
+            font-size: 20px;
+        }
+        
+        .search-input-wrapper input[type="search"] {
+            padding: 12px 12px 12px 40px;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main-header {
+            padding: 12px 15px;
+        }
+        
+        .logo-text {
+            font-size: 15px;
+        }
+        
+        .mobile-menu {
+            width: 280px;
+        }
+
+        .search-header h3 {
+            font-size: 18px;
+        }
+        
+        .search-input-wrapper input[type="search"] {
+            font-size: 14px;
+            padding: 10px 10px 10px 35px;
+        }
+
+        .mobile-left {
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .cart-sidebar {
+            width: 100%;
+        }
+        
+        .mobile-left {
+            gap: 15px;
+        }
+    }
+</style>
+  <style>
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Contenu principal */
+        .main-content {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+        
+        .faq-header {
+                font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif; 
+
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .faq-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .faq-container {
+                font-family: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif; 
+
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+        
+        .faq-checkbox {
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+        
+        .faq-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            flex: 1;
+        }
+        
+        .faq-answer {
+            margin-top: 1rem;
+            padding-left: 2rem;
+            color: #555;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            margin-top: auto;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .footer-section a:hover {
+            color: #3498db;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #34495e;
+            margin-top: 1.5rem;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin: 0 0.75rem;
+            }
+            
+            .faq-header h1 {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+        <section class="faq-section">
+        <div class="faq-header">
+            <h1>Foire Aux Questions</h1>
+            <p>Retrouvez ici les réponses aux questions les plus fréquentes</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <input type="checkbox" class="faq-checkbox">
+                    <span class="faq-text">Combien de temps prend la livraison ?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nos délais de livraison standard sont de 3 à 5 jours ouvrables. Pour les commandes express, la livraison se fait sous 24 à 48 heures.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <input type="checkbox" class="faq-checkbox">
+                    <span class="faq-text">Quelle est votre politique de retour ?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nous acceptons les retours sous 30 jours suivant la réception de votre commande. Les articles doivent être dans leur état d'origine, non portés et avec leurs étiquettes.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <input type="checkbox" class="faq-checkbox">
+                    <span class="faq-text">Vos produits sont-ils hypoallergéniques ?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Oui, tous nos bijoux sont fabriqués avec des matériaux hypoallergéniques de haute qualité, adaptés aux peaux sensibles.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <input type="checkbox" class="faq-checkbox">
+                    <span class="faq-text">Comment puis-je contacter votre service clientèle ?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Vous pouvez nous contacter par email à support@votresite.com ou par téléphone au 01 23 45 67 89 du lundi au vendredi de 9h à 18h.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <input type="checkbox" class="faq-checkbox">
+                    <span class="faq-text">Le métal se décolore-t-il ?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nos bijoux en métal sont traités avec un revêtement anti-oxydation qui les protège contre la décoloration. Nous recommandons toutefois d'éviter le contact avec l'eau, les produits chimiques et les parfums pour prolonger leur éclat.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <input type="checkbox" class="faq-checkbox">
+                    <span class="faq-text">Qu'est-ce que la Moissanite ?</span>
+                </div>
+                <div class="faq-answer">
+                    <p>La Moissanite est une pierre précieuse naturelle extrêmement rare. La plupart des Moissanites disponibles aujourd'hui sont créées en laboratoire. Elle possède un éclat et une brillance exceptionnels, souvent comparables à ceux du diamant, mais à un prix beaucoup plus abordable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        <style>
+        /* Styles pour la section FAQ */
+        .faq-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .faq-header h1 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .faq-header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .faq-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 2rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #3498db;
+        }
+        
+        .faq-checkbox {
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            transform: scale(1.2);
+        }
+        
+        .faq-text {
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            flex: 1;
+        }
+        
+        .faq-answer {
+            margin-top: 1rem;
+            padding-left: 2.2rem;
+            color: #555;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 0 1rem;
+            }
+            
+            .faq-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .faq-container {
+                padding: 1.5rem;
+            }
+            
+            .faq-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+      <footer>
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Branding -->
+      <div class="footer-col footer-branding">
+        <a href="/" class="footer-logo">
+          <img src="https://scontent.falg6-1.fna.fbcdn.net/v/t1.15752-9/554322545_1529156254887922_7655227848082771962_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=m63xPoUNZyIQ7kNvwEAllVP&_nc_oc=Adl-PBNOr82Cw9HWK_wdib8Nrtg0PSVIQd_2161b9OOf_KNP_H4XdyXbKTwE_zAxP88&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.falg6-1.fna&oh=03_Q7cD3gFn8Vbopf1hKeJ6aDNh7WyKzx1l8a5uORB2OW1kc5Owhw&oe=690A90B1" alt="MA Logo" loading="lazy">
+        </a>
+        <div class="social-links">
+          <a href="https://www.instagram.com/Montre De Luxe" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/Montre De Luxe" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@maa.accessoires" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Catégories -->
+      <div class="footer-col categories-dropdown">
+        <h3>CATÉGORIES</h3>
+        <!-- Liste pour desktop -->
+        <ul>
+          <li><a href="/collections/all">Rolex</a></li>
+          <li><a href="/collections/all">Omega</a></li>
+          <li><a href="/collections/all">Hublot</a></li>
+          <li><a href="/collections/all">Patek Philippe</a></li>
+          <li><a href="/collections/all">Audemars Piguet</a></li>
+          <li><a href="/collections/all">Rolex 3A</a></li>
+        </ul>
+        <!-- Select pour mobile -->
+        <select aria-label="Sélectionner une catégorie" onchange="if(this.value) window.location.href=this.value">
+          <option value="/collections/all">Rolex</option>
+          <option value="/collections/all">Omega</option>
+          <option value="/collections/all">Hublot</option>
+          <option value="/collections/all">Patek Philippe</option>
+          <option value="/collections/all">Audemars Piguet</option>
+          <option value="/collections/all">Rolex 3A</option>
+        </select>
+      </div>
+
+      <!-- Politiques -->
+      <div class="footer-col policies-dropdown">
+        <h3>POLITIQUES DU MAGASIN</h3>
+        <!-- Liste pour desktop -->
+        <ul>
+          <li><a href="https://policies.google.com/terms?hl=fr-CA">Politique de confidentialité</a></li>
+        </ul>
+        <!-- Select pour mobile -->
+        <select aria-label="Sélectionner une politique" onchange="if(this.value) window.location.href=this.value">
+          <option value="#">Choisi</option>
+          <option value="https://policies.google.com/terms?hl=fr-CA">Politique de confidentialité</option>
+
+        </select>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-col footer-newsletter">
+        <h3>ENTREZ VOTRE EMAIL POUR SUIVRE LES TENDANCES ET OBTENIR DES BONUS EXCLUSIFS!</h3>
+        <form action="#" method="post" class="newsletter-form">
+          <input type="email" name="email" placeholder="Email" aria-label="Votre adresse email" required>
+          <button type="submit">S'INSCRIRE</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2025, Montre De Luxe. Tous droits réservés.</p>
+
+    </div>
+  </div>
+</footer>
+    <script>
+        // Script pour faire fonctionner l'affichage des réponses FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+<script src="index.js"></script>
+</body>
+</html>
